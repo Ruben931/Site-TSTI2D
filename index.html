@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Révisions: Dérivées & Limites </title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["$","$"],["\\(","\\)"]], displayMath: [["$$","$$"],["\\[","\\]"]] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>🧮 Révisions: Dérivées & Limites TSTI2D </h1>
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="derivees-lecon" onclick="switchTab('derivees-lecon')">Leçon Dérivées</button>
+        <button class="tab-btn" data-tab="derivees-exercices" onclick="switchTab('derivees-exercices')">Exercices Dérivées</button>
+        <button class="tab-btn" data-tab="limites-lecon" onclick="switchTab('limites-lecon')">Leçon Limites</button>
+        <button class="tab-btn" data-tab="limites-exercices" onclick="switchTab('limites-exercices')">Exercices Limites</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Leçon Dérivées -->
+    <section id="derivees-lecon" class="tab-content active">
+      <h2>📚 Leçon: Fonction dérivée d'une fonction f</h2>
+      
+      <div class="cards-grid">
+        <div class="card">
+          <h3>📋 Définition</h3>
+          <p>Soit la fonction $f$ définie sur un intervalle $I$.</p>
+          <p>On dit que $f$ est <strong>dérivable</strong> en $a$ si elle admet un nombre dérivé en ce point.</p>
+          <p class="formula">$$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$</p>
+          <p class="note">La fonction dérivée $f'$ associe à tout $x$ de $I$ le nombre dérivé $f'(x)$.</p>
+        </div>
+
+        <div class="card">
+          <h3>📊 Fonctions dérivées des fonctions de référence</h3>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+            <thead>
+              <tr style="background: var(--bg-hover); border-bottom: 1px solid var(--border);">
+                <th style="padding: 0.75rem; text-align: center;">Fonction $f$</th>
+                <th style="padding: 0.75rem; text-align: center;">Fonction dérivée $f'$</th>
+                <th style="padding: 0.75rem; text-align: center;">Ensemble de dérivabilité</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem; text-align: center;">$f(x) = k$ où $k \in \mathbb{R}$</td>
+                <td style="padding: 0.75rem; text-align: center;">$f'(x) = 0$</td>
+                <td style="padding: 0.75rem; text-align: center;">$\mathbb{R}$</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem; text-align: center;">$f(x) = x$</td>
+                <td style="padding: 0.75rem; text-align: center;">$f'(x) = 1$</td>
+                <td style="padding: 0.75rem; text-align: center;">$\mathbb{R}$</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem; text-align: center;">$f(x) = x^2$</td>
+                <td style="padding: 0.75rem; text-align: center;">$f'(x) = 2x$</td>
+                <td style="padding: 0.75rem; text-align: center;">$\mathbb{R}$</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem; text-align: center;">$f(x) = x^3$</td>
+                <td style="padding: 0.75rem; text-align: center;">$f'(x) = 3x^2$</td>
+                <td style="padding: 0.75rem; text-align: center;">$\mathbb{R}$</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem; text-align: center;">$f(x) = \frac{1}{x}$</td>
+                <td style="padding: 0.75rem; text-align: center;">$f'(x) = -\frac{1}{x^2}$</td>
+                <td style="padding: 0.75rem; text-align: center;">$\mathbb{R}^*$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>⚡ Opérations sur les fonctions dérivées</h3>
+          <p>Soient $u$ et $v$ deux fonctions dérivables sur un même intervalle $I$:</p>
+          <div class="rules">
+            <p><strong>• Somme:</strong> $(u + v)' = u' + v'$</p>
+            <p><strong>• Produit par une constante:</strong> $(ku)' = ku'$ où $k \in \mathbb{R}$</p>
+            <p><strong>• Produit:</strong> $(uv)' = u'v + uv'$</p>
+            <p><strong>• Quotient:</strong> $\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$ (si $v \neq 0$)</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🔗 Dérivée d'une fonction composée</h3>
+          <p>Si $u$ est dérivable en $a$ et $v$ est dérivable en $u(a)$, alors:</p>
+          <p class="formula">$$(v \circ u)'(a) = v'(u(a)) \times u'(a)$$</p>
+          <p class="example"><strong>Exemple:</strong> $f(x) = (2x + 1)^3$<br>
+          Posons $u(x) = 2x + 1$ et $v(x) = x^3$<br>
+          $f'(x) = v'(u(x)) \times u'(x) = 3(2x + 1)^2 \times 2 = 6(2x + 1)^2$</p>
+        </div>
+
+        <div class="card">
+          <h3>📈 Applications: Tangente et variations</h3>
+          <div class="rules">
+            <p><strong>• Équation de la tangente</strong> en $a$: $y = f'(a)(x - a) + f(a)$</p>
+            <p><strong>• Sens de variation:</strong></p>
+            <p style="margin-left: 1rem;">- Si $f'(x) > 0$ sur $I$, alors $f$ est strictement croissante sur $I$</p>
+            <p style="margin-left: 1rem;">- Si $f'(x) < 0$ sur $I$, alors $f$ est strictement décroissante sur $I$</p>
+            <p style="margin-left: 1rem;">- Si $f'(x) = 0$ sur $I$, alors $f$ est constante sur $I$</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>💡 Exemples de calculs</h3>
+          <div class="example">
+            <p><strong>1)</strong> Soit $f(x) = 3x^2 - 5x + 1$, alors $f'(x) = 6x - 5$</p>
+            <p><strong>2)</strong> Soit $g(x) = \frac{2x + 3}{x - 1}$, alors $g'(x) = \frac{2(x-1) - (2x+3)}{(x-1)^2} = \frac{-5}{(x-1)^2}$</p>
+            <p><strong>3)</strong> Soit $h(x) = (x^2 + 1)(3x - 2)$, alors $h'(x) = 2x(3x-2) + (x^2+1) \times 3 = 9x^2 - 4x + 3$</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercices Dérivées -->
+    <section id="derivees-exercices" class="tab-content">
+      <h2>✏️ Exercices: Dérivées</h2>
+      <div class="quiz-container">
+        <div class="quiz-controls">
+          <label>Nombre de questions: <input type="number" id="nb-derivees" min="3" max="8" value="5"></label>
+          <button onclick="genererQuizDerivees()" class="btn-primary">Générer Quiz</button>
+          <button onclick="corrigerQuizDerivees()" class="btn-secondary" id="corriger-derivees" disabled>Corriger</button>
+          <button onclick="resetQuizDerivees()" class="btn-secondary" id="reset-derivees" disabled>Recommencer</button>
+        </div>
+        <div id="quiz-derivees" class="quiz-questions"></div>
+        <div id="resultat-derivees" class="resultat"></div>
+      </div>
+    </section>
+
+    <!-- Leçon Limites -->
+    <section id="limites-lecon" class="tab-content">
+      <h2>📈 Chapitre 2: Les limites de fonctions</h2>
+      
+      <div class="card" style="margin-bottom: 2rem;">
+        <p style="font-style: italic; color: var(--text-muted);">
+        cours portant sur la fonction 1 sur x mais egalement sur la fonctione ² 
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h3>I. Limites d'une fonction à l'infini</h3>
+          <p>Dans cette partie, on va définir la notion de limite d'une fonction $f$ en $+\infty$, dans un
+          ensemble de définition contenant un intervalle $[a; +\infty[$ pour $a \in \mathbb{R}$.</p>
+          <p><em>On considère $l$ un nombre réel.</em></p>
+        </div>
+
+        <div class="card">
+          <h3>A. Définition</h3>
+          <div class="formula" style="background: #e3f2fd; border-left: 4px solid #2196f3;">
+            <p><strong>Définition:</strong> $\displaystyle \lim_{x \to +\infty} f(x) = +\infty$</p>
+            <p>On dit que la limite de $f$ en $+\infty$ est égale à $+\infty$, et l'on écrit:</p>
+            <p style="text-align: center;">$\displaystyle \lim_{x \to +\infty} f(x) = +\infty$</p>
+            <p>Lorsque $f(x)$ est aussi grand que l'on veut (voisin de $+\infty$), dès que $x$ est assez grand (voisin de $+\infty$).</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Limite égale à $-\infty$</h3>
+          <div class="formula" style="background: #fff3e0; border-left: 4px solid #ff9800;">
+            <p><strong>Définition:</strong> $\displaystyle \lim_{x \to +\infty} f(x) = -\infty$</p>
+            <p>On dit que la limite de $f$ en $+\infty$ est égale à $-\infty$, et l'on écrit:</p>
+            <p style="text-align: center;">$\displaystyle \lim_{x \to +\infty} f(x) = -\infty$</p>
+            <p>Lorsque $f(x)$ est aussi petit que l'on veut (voisin de $-\infty$), dès que $x$ est assez grand (voisin de $+\infty$).</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Limite finie</h3>
+          <div class="formula" style="background: #f3e5f5; border-left: 4px solid #9c27b0;">
+            <p><strong>Définition:</strong> $\displaystyle \lim_{x \to +\infty} f(x) = l$</p>
+            <p>On dit que la limite de $f$ en $+\infty$ est égale à $l$ et l'on écrit:</p>
+            <p style="text-align: center;">$\displaystyle \lim_{x \to +\infty} f(x) = l$</p>
+            <p>Lorsque la distance entre $f(x)$ et $l$ est aussi proche de zéro que l'on veut, dès que $x$ est assez grand (voisin de $+\infty$).</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Limite en $-\infty$</h3>
+          <p class="note">
+            <strong>Remarque:</strong> On définit de manière analogue la limite d'une fonction en $-\infty$, lorsque l'ensemble
+            de définition de cette fonction contient un intervalle $]-\infty; a[$ pour $a \in \mathbb{R}$
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>💡 Exemples concrets</h3>
+          <div class="example">
+            <p><strong>1)</strong> $\displaystyle \lim_{x \to +\infty} x^2 = +\infty$ (fonction carrée)</p>
+            <p><strong>2)</strong> $\displaystyle \lim_{x \to +\infty} -x^3 = -\infty$ (fonction cubique négative)</p>
+            <p><strong>3)</strong> $\displaystyle \lim_{x \to +\infty} \frac{1}{x} = 0$ (fonction inverse)</p>
+            <p><strong>4)</strong> $\displaystyle \lim_{x \to +\infty} \frac{2x^2 + 3x + 1}{x^2 + 5} = 2$ (fonctions rationnelles)</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🔍 Méthodes de calcul</h3>
+          <div class="rules">
+            <p><strong>• Polynômes:</strong> La limite dépend du terme de plus haut degré</p>
+            <p><strong>• Fractions rationnelles:</strong> Comparer les degrés du numérateur et dénominateur</p>
+            <p><strong>• Même degré:</strong> Limite = rapport des coefficients dominants</p>
+            <p><strong>• Degré num < degré dén:</strong> Limite = 0</p>
+            <p><strong>• Degré num > degré dén:</strong> Limite = $\pm\infty$</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercices Limites -->
+    <section id="limites-exercices" class="tab-content">
+      <h2>🎯 Exercices: Limites</h2>
+      <div class="quiz-container">
+        <div class="quiz-controls">
+          <label>Nombre de questions: <input type="number" id="nb-limites" min="3" max="8" value="5"></label>
+          <button onclick="genererQuizLimites()" class="btn-primary">Générer Quiz</button>
+          <button onclick="corrigerQuizLimites()" class="btn-secondary" id="corriger-limites" disabled>Corriger</button>
+          <button onclick="resetQuizLimites()" class="btn-secondary" id="reset-limites" disabled>Recommencer</button>
+        </div>
+        <div id="quiz-limites" class="quiz-questions"></div>
+        <div id="resultat-limites" class="resultat"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>💡 Site de révisions pour les dérivées et limites - Ruben Moreira</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Fallback si le script principal ne marche pas
+    window.addEventListener('load', function() {
+      if (!document.querySelector('.tab-content.active')) {
+        document.getElementById('derivees-lecon').classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
+</html>
