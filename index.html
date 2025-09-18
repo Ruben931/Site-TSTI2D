@@ -18,108 +18,362 @@
   <header class="site-header">
     <div class="container">
       <h1>🧮 Révisions: Dérivées & Limites TSTI2D </h1>
-      <nav class="tabs">
-        <button class="tab-btn active" data-tab="derivees-lecon" onclick="switchTab('derivees-lecon')">Leçon Dérivées</button>
-        <button class="tab-btn" data-tab="derivees-exercices" onclick="switchTab('derivees-exercices')">Exercices Dérivées</button>
-        <button class="tab-btn" data-tab="limites-lecon" onclick="switchTab('limites-lecon')">Leçon Limites</button>
-        <button class="tab-btn" data-tab="limites-exercices" onclick="switchTab('limites-exercices')">Exercices Limites</button>
-      </nav>
+        <nav class="tabs">
+          <button class="tab-btn active" data-tab="derivees-lecon" onclick="switchTab('derivees-lecon')">Leçon Fonction inverse</button>
+          <button class="tab-btn" data-tab="derivees-exercices" onclick="switchTab('derivees-exercices')">Exercices Fonction inverse</button>
+          <button class="tab-btn" data-tab="derivees-applications" onclick="switchTab('derivees-applications')">Applications des dérivées</button>
+          <button class="tab-btn" data-tab="applications-exercices" onclick="switchTab('applications-exercices')">Exercices Applications</button>
+        </nav>
     </div>
   </header>
 
   <main class="container">
     <!-- Leçon Dérivées -->
     <section id="derivees-lecon" class="tab-content active">
-      <h2>📚 Leçon: Fonction dérivée d'une fonction f</h2>
+      <h2 style="color: #ef4444; font-weight: 800;">Chapitre 1 : Fonction inverse</h2>
       
-      <div class="cards-grid">
-        <div class="card">
-          <h3>📋 Définition</h3>
-          <p>Soit la fonction $f$ définie sur un intervalle $I$.</p>
-          <p>On dit que $f$ est <strong>dérivable</strong> en $a$ si elle admet un nombre dérivé en ce point.</p>
-          <p class="formula">$$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$</p>
-          <p class="note">La fonction dérivée $f'$ associe à tout $x$ de $I$ le nombre dérivé $f'(x)$.</p>
-        </div>
-
-        <div class="card">
-          <h3>📊 Fonctions dérivées des fonctions de référence</h3>
-          <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
-            <thead>
-              <tr style="background: var(--bg-hover); border-bottom: 1px solid var(--border);">
-                <th style="padding: 0.75rem; text-align: center;">Fonction $f$</th>
-                <th style="padding: 0.75rem; text-align: center;">Fonction dérivée $f'$</th>
-                <th style="padding: 0.75rem; text-align: center;">Ensemble de dérivabilité</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem; text-align: center;">$f(x) = k$ où $k \in \mathbb{R}$</td>
-                <td style="padding: 0.75rem; text-align: center;">$f'(x) = 0$</td>
-                <td style="padding: 0.75rem; text-align: center;">$\mathbb{R}$</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem; text-align: center;">$f(x) = x$</td>
-                <td style="padding: 0.75rem; text-align: center;">$f'(x) = 1$</td>
-                <td style="padding: 0.75rem; text-align: center;">$\mathbb{R}$</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem; text-align: center;">$f(x) = x^2$</td>
-                <td style="padding: 0.75rem; text-align: center;">$f'(x) = 2x$</td>
-                <td style="padding: 0.75rem; text-align: center;">$\mathbb{R}$</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem; text-align: center;">$f(x) = x^3$</td>
-                <td style="padding: 0.75rem; text-align: center;">$f'(x) = 3x^2$</td>
-                <td style="padding: 0.75rem; text-align: center;">$\mathbb{R}$</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem; text-align: center;">$f(x) = \frac{1}{x}$</td>
-                <td style="padding: 0.75rem; text-align: center;">$f'(x) = -\frac{1}{x^2}$</td>
-                <td style="padding: 0.75rem; text-align: center;">$\mathbb{R}^*$</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="card">
-          <h3>⚡ Opérations sur les fonctions dérivées</h3>
-          <p>Soient $u$ et $v$ deux fonctions dérivables sur un même intervalle $I$:</p>
-          <div class="rules">
-            <p><strong>• Somme:</strong> $(u + v)' = u' + v'$</p>
-            <p><strong>• Produit par une constante:</strong> $(ku)' = ku'$ où $k \in \mathbb{R}$</p>
-            <p><strong>• Produit:</strong> $(uv)' = u'v + uv'$</p>
-            <p><strong>• Quotient:</strong> $\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$ (si $v \neq 0$)</p>
+      <div class="lesson-section">
+        <div class="card lesson-card">
+          <h3 style="color: #ef4444; font-size: 1.3rem;">I) Définition et allure de la courbe</h3>
+          
+          <div class="definition-box">
+            <p><strong>Définition :</strong></p>
+            <p style="margin-left: 2rem;">La fonction inverse $f$ est définie sur $\mathbb{R}^*\{0\}$ par $f(x) = \frac{1}{x}$.</p>
+            <p style="margin-left: 2rem;">Sa représentation graphique est donnée ci-contre :</p>
+          </div>
+          
+          <div class="table-container" style="margin: 2rem 0;">
+            <table class="values-table">
+              <thead>
+                <tr>
+                  <th>$x$</th>
+                  <th>$-2$</th>
+                  <th>$-1$</th>
+                  <th>$0,25$</th>
+                  <th>$1$</th>
+                  <th>$2$</th>
+                  <th>$3$</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>$f(x)$</th>
+                  <td>$-0,5$</td>
+                  <td>$-1$</td>
+                  <td>$4$</td>
+                  <td>$1$</td>
+                  <td>$0,5$</td>
+                  <td>$\frac{1}{3}$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="remarque-box">
+            <p><strong>Remarque :</strong></p>
+            <p style="margin-left: 2rem;">La courbe d'équation $y = \frac{1}{x}$ de la fonction inverse, appelée <strong>hyperbole de centre O</strong>, est symétrique par rapport à l'origine.</p>
           </div>
         </div>
 
-        <div class="card">
-          <h3>🔗 Dérivée d'une fonction composée</h3>
-          <p>Si $u$ est dérivable en $a$ et $v$ est dérivable en $u(a)$, alors:</p>
-          <p class="formula">$$(v \circ u)'(a) = v'(u(a)) \times u'(a)$$</p>
-          <p class="example"><strong>Exemple:</strong> $f(x) = (2x + 1)^3$<br>
-          Posons $u(x) = 2x + 1$ et $v(x) = x^3$<br>
-          $f'(x) = v'(u(x)) \times u'(x) = 3(2x + 1)^2 \times 2 = 6(2x + 1)^2$</p>
+        <div class="card lesson-card">
+          <h3 style="color: #ef4444; font-size: 1.3rem;">II) Dérivée et sens de variation</h3>
+          
+          <div class="propriete-box">
+            <p><strong>Propriété :</strong></p>
+            <p style="margin-left: 2rem;">La dérivée de la fonction inverse $f$ est définie sur $\mathbb{R}^*\{0\}$ par $f'(x) = -\frac{1}{x^2}$</p>
+          </div>
+          
+          <div class="propriete-box" style="margin-top: 1.5rem;">
+            <p><strong>Propriété :</strong></p>
+            <p style="margin-left: 2rem;">La fonction inverse est décroissante sur $]-\infty ; 0[$ et décroissante sur $]0 ; +\infty[$.</p>
+          </div>
+          
+          <p class="exercise-ref">Exercices 5, 6, 8 p 41</p>
         </div>
 
-        <div class="card">
-          <h3>📈 Applications: Tangente et variations</h3>
-          <div class="rules">
-            <p><strong>• Équation de la tangente</strong> en $a$: $y = f'(a)(x - a) + f(a)$</p>
-            <p><strong>• Sens de variation:</strong></p>
-            <p style="margin-left: 1rem;">- Si $f'(x) > 0$ sur $I$, alors $f$ est strictement croissante sur $I$</p>
-            <p style="margin-left: 1rem;">- Si $f'(x) < 0$ sur $I$, alors $f$ est strictement décroissante sur $I$</p>
-            <p style="margin-left: 1rem;">- Si $f'(x) = 0$ sur $I$, alors $f$ est constante sur $I$</p>
+        <div class="card lesson-card">
+          <h3 style="color: #ef4444; font-size: 1.3rem;">III) Comportement de la fonction inverse aux bornes de son ensemble de définition</h3>
+          
+          <div class="subsection">
+            <h4 style="color: #ef4444; text-decoration: underline;">1) En $+\infty$</h4>
+            
+            <p>On s'intéresse aux valeurs de $f(x)$ lorsque $x$ devient de plus en plus grand.</p>
+            
+            <div class="table-container" style="margin: 1.5rem 0;">
+              <table class="values-table">
+                <thead>
+                  <tr>
+                    <th>$x$</th>
+                    <th>$5$</th>
+                    <th>$10$</th>
+                    <th>$100$</th>
+                    <th>$10000$</th>
+                    <th>...</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>$f(x)$</th>
+                    <td>$0,2$</td>
+                    <td>$0,1$</td>
+                    <td>$0,01$</td>
+                    <td style="background: #4caf50; color: white; font-weight: bold;">$0,0001$</td>
+                    <td>...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <p>On constate que $f(x)$ se rapproche de $0$ lorsque $x$ devient de plus en plus grand.</p>
+            <p>On dit que la limite de $f$ lorsque $x$ tend vers $+\infty$ est égale à $0$ et on note :</p>
+            <p class="limit-formula">$$\lim_{x \to +\infty} f(x) = 0.$$</p>
+            
+            <p>Graphiquement, pour des valeurs de plus en plus grandes, la courbe de $f$ se rapproche de plus en plus de l'axe des abscisses.</p>
+            <p>On dit que l'axe des abscisses est une <strong>asymptote horizontale</strong> à la courbe de la fonction inverse en $-\infty$ et en $+\infty$.</p>
+          </div>
+          
+          <div class="subsection" style="margin-top: 2rem;">
+            <h4 style="color: #ef4444; text-decoration: underline;">2) En $-\infty$</h4>
+            
+            <p>On s'intéresse aux valeurs de $f(x)$ lorsque $x$ devient de plus en plus « grand dans les négatifs ».</p>
+            
+            <div class="table-container" style="margin: 1.5rem 0;">
+              <table class="values-table">
+                <thead>
+                  <tr>
+                    <th>$x$</th>
+                    <th>...</th>
+                    <th>$-10000$</th>
+                    <th>$-100$</th>
+                    <th>$-10$</th>
+                    <th>$-5$</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>$f(x)$</th>
+                    <td>...</td>
+                    <td style="background: #4caf50; color: white; font-weight: bold;">$-0,0001$</td>
+                    <td>$-0,01$</td>
+                    <td>$-0,1$</td>
+                    <td>$-0,2$</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <p>On constate que $f(x)$ se rapproche de $0$ lorsque $x$ devient de plus en plus « grand dans les négatifs ».</p>
+            <p>On dit que la limite de $f$ lorsque $x$ tend vers $-\infty$ est égale à $0$ et on note :</p>
+            <p class="limit-formula">$$\lim_{x \to -\infty} f(x) = 0.$$</p>
+            
+            <p>Graphiquement, pour des valeurs de plus en plus « grandes dans les négatifs », la courbe de $f$ se rapproche de plus en plus de l'axe des abscisses.</p>
+            <p>On dit que l'axe des abscisses est une <strong>asymptote horizontale</strong> à la courbe de la fonction inverse en $-\infty$ et en $+\infty$.</p>
+          </div>
+          
+          <div class="subsection" style="margin-top: 2rem;">
+            <h4 style="color: #ef4444; text-decoration: underline;">3) Au voisinage de 0</h4>
+            
+            <p>L'image de $0$ par la fonction $f$ n'existe pas. On s'intéresse cependant aux valeurs de $f(x)$ lorsque $x$ se rapproche de $0$.</p>
+            
+            <div class="double-arrow" style="text-align: center; margin: 1rem 0;">
+              <span style="color: #2196f3; font-size: 1.5rem;">←</span>
+              <span style="margin: 0 2rem; font-weight: bold;">Approche de 0</span>
+              <span style="color: #2196f3; font-size: 1.5rem;">→</span>
+            </div>
+            
+            <div class="table-container" style="margin: 1.5rem 0;">
+              <table class="values-table">
+                <thead>
+                  <tr>
+                    <th>$x$</th>
+                    <th>$-0,5$</th>
+                    <th>$-0,1$</th>
+                    <th>$-0,01$</th>
+                    <th>$-0,001$</th>
+                    <th>...</th>
+                    <th>$0,001$</th>
+                    <th>$0,01$</th>
+                    <th>$0,1$</th>
+                    <th>$0,5$</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>$f(x)$</th>
+                    <td>$-2$</td>
+                    <td>$-10$</td>
+                    <td>$-100$</td>
+                    <td style="background: #4caf50; color: white; font-weight: bold;">$-1000$</td>
+                    <td>...</td>
+                    <td style="background: #4caf50; color: white; font-weight: bold;">$1000$</td>
+                    <td>$100$</td>
+                    <td>$10$</td>
+                    <td>$2$</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="calcul-box">
+              <p><strong>À l'aide de la calculatrice, on constate que :</strong></p>
+              
+              <div style="margin: 1rem 0; padding: 1rem; background: rgba(33, 150, 243, 0.1); border-left: 4px solid #2196f3; border-radius: 0 0.5rem 0.5rem 0;">
+                <p><strong>- Pour $x > 0$ :</strong> $f(x)$ devient de plus en plus grand lorsque $x$ se rapproche de $0$.</p>
+                <p>On dit que la limite de $f$ lorsque $x$ tend vers $0$ pour $x > 0$ est égale à $+\infty$ et on note :</p>
+                <p class="limit-formula">$$\lim_{x \to 0^+} f(x) = +\infty.$$</p>
+                <p>Graphiquement, pour des valeurs positives, de plus en plus proches de $0$, la courbe de $f$ se rapproche de plus en plus de l'axe des ordonnées.</p>
+              </div>
+              
+              <div style="margin: 1rem 0; padding: 1rem; background: rgba(255, 152, 0, 0.1); border-left: 4px solid #ff9800; border-radius: 0 0.5rem 0.5rem 0;">
+                <p><strong>- Pour $x < 0$ :</strong> $f(x)$ devient de plus en plus « grand dans les négatifs » lorsque $x$ se rapproche de $0$.</p>
+                <p>On dit que la limite de $f$ lorsque $x$ tend vers $0$ pour $x < 0$ est égale à $-\infty$ et on note :</p>
+                <p class="limit-formula">$$\lim_{x \to 0^-} f(x) = -\infty.$$</p>
+                <p>Graphiquement, pour des valeurs négatives, de plus en plus proches de $0$, la courbe de $f$ se rapproche de plus en plus de l'axe des ordonnées.</p>
+              </div>
+            </div>
+            
+            <p class="asymptote-conclusion">On dit que l'axe des ordonnées est une <strong>asymptote verticale</strong> à la courbe de la fonction inverse.</p>
           </div>
         </div>
 
-        <div class="card">
-          <h3>💡 Exemples de calculs</h3>
-          <div class="example">
-            <p><strong>1)</strong> Soit $f(x) = 3x^2 - 5x + 1$, alors $f'(x) = 6x - 5$</p>
-            <p><strong>2)</strong> Soit $g(x) = \frac{2x + 3}{x - 1}$, alors $g'(x) = \frac{2(x-1) - (2x+3)}{(x-1)^2} = \frac{-5}{(x-1)^2}$</p>
-            <p><strong>3)</strong> Soit $h(x) = (x^2 + 1)(3x - 2)$, alors $h'(x) = 2x(3x-2) + (x^2+1) \times 3 = 9x^2 - 4x + 3$</p>
+        <div class="card lesson-card">
+          <h3 style="color: #333; font-size: 1.2rem;">📚 Références du manuel</h3>
+          <div class="references-grid">
+            <div class="ref-item">
+              <strong>Calcul de limites :</strong> 16, 17, 18 p 42
+            </div>
+            <div class="ref-item">
+              <strong>Lecture graphique :</strong> 19, 20 p 42 ; 41 p 44
+            </div>
+            <div class="ref-item">
+              <strong>Études de signe de fonctions :</strong> 11, 12, 13 p 41
+            </div>
+            <div class="ref-item">
+              <strong>Études de fonctions :</strong> 31, 32, 34 p 43
+            </div>
+            <div class="ref-item">
+              <strong>Coût (coût total, coût unitaire) :</strong> 70, 71 p 50
+            </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Applications des dérivées -->
+    <section id="derivees-applications" class="tab-content">
+      <h2 style="color: #ef4444; font-weight: 800;">Applications des dérivées</h2>
+      
+      <div class="lesson-section">
+        <div class="card lesson-card">
+          <h3 style="color: #ef4444; font-size: 1.3rem;">I) Optimisation et coût</h3>
+          
+          <div class="example-problem">
+            <h4>📊 Exemple : Coût de production</h4>
+            <p>Une entreprise produit des appareils électroménagers. Le coût horaire de production de $x$ appareils est donné en euros par :</p>
+            <p class="formula">$$C(x) = x^2 + 50x + 100 \text{ pour } 5 \leq x \leq 40$$</p>
+            
+            <div class="sub-questions">
+              <div class="question-part">
+                <p><strong>1. L'entreprise vend chaque appareil 100 euros.</strong></p>
+                <p><strong>a.</strong> Expliquer pourquoi le bénéfice horaire réalisé par la fabrication et la vente de $x$ objets est égal à :</p>
+                <p class="formula">$$B(x) = -x^2 + 50x - 100 \text{ pour } x \text{ appartenant à l'intervalle } [5; 40]$$</p>
+                
+                <p><strong>b.</strong> $B'$ étant la fonction dérivée de $B$ sur l'intervalle $[5; 40]$, calculer $B'(x)$ et étudier son signe.</p>
+                
+                <p><strong>c.</strong> Dresser le tableau de variation de $B$ sur l'intervalle $[5; 40]$.</p>
+                
+                <p><strong>d.</strong> Quel est le nombre d'appareils à produire pour que le bénéfice horaire de l'entreprise soit maximal ?</p>
+              </div>
+              
+              <div class="question-part">
+                <p><strong>2. Le coût unitaire de production d'un appareil lorsque $x$ appareils sont produits est égal à</strong></p>
+                <p class="formula">$$f(x) = \frac{C(x)}{x} \text{ pour } x \text{ appartenant à l'intervalle } [5; 40]$$</p>
+                
+                <p><strong>a.</strong> Montrer que $f(x) = x + 50 + \frac{100}{x}$ pour $x$ appartenant à l'intervalle $[5; 40]$.</p>
+                
+                <p><strong>b.</strong> $f'$ étant la dérivée de la fonction $f$ sur l'intervalle $[5; 40]$, montrer que $f'(x) = \frac{(x-10)(x+10)}{x^2}$ pour tout $x$ appartenant à l'intervalle $[5; 40]$.</p>
+                
+                <div class="method-box">
+                  <p><strong>🔧 Méthode :</strong> Dériver chacun des termes de $f(x)$ puis factoriser le numérateur de $f'(x)$.</p>
+                </div>
+                
+                <p><strong>c.</strong> Étudier le signe de $f'(x)$ sur l'intervalle $[5; 40]$ et dresser le tableau de variation de $f$.</p>
+                
+                <div class="method-box">
+                  <p><strong>🔧 Méthode :</strong> Justifier que sur l'intervalle $[5; 40]$, étudier le signe de $f'(x)$ revient à étudier celui de $(x-10)$.</p>
+                </div>
+                
+                <p><strong>d.</strong> Pour quelle valeur de $x$ le coût unitaire est-il minimal ? Préciser alors sa valeur.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card lesson-card">
+          <h3 style="color: #ef4444; font-size: 1.3rem;">II) Méthodes de résolution</h3>
+          
+          <div class="method-section">
+            <div class="method-item">
+              <h4>🔧 Méthode 1 : Optimisation d'une fonction</h4>
+              <ol>
+                <li>Calculer la dérivée $f'(x)$</li>
+                <li>Étudier le signe de $f'(x)$</li>
+                <li>Dresser le tableau de variations</li>
+                <li>Identifier les extremums (maximum ou minimum)</li>
+              </ol>
+            </div>
+            
+            <div class="method-item">
+              <h4>🔧 Méthode 2 : Coût unitaire</h4>
+              <p>Pour une fonction de coût $C(x)$ :</p>
+              <ul>
+                <li><strong>Coût unitaire :</strong> $f(x) = \frac{C(x)}{x}$</li>
+                <li><strong>Dérivée :</strong> $f'(x) = \frac{C'(x) \cdot x - C(x)}{x^2}$</li>
+                <li><strong>Optimisation :</strong> Résoudre $f'(x) = 0$</li>
+              </ul>
+            </div>
+            
+            <div class="method-item">
+              <h4>🔧 Méthode 3 : Bénéfice</h4>
+              <p>Pour optimiser un bénéfice :</p>
+              <ul>
+                <li><strong>Bénéfice :</strong> $B(x) = \text{Recette}(x) - \text{Coût}(x)$</li>
+                <li><strong>Recette :</strong> $R(x) = \text{prix unitaire} \times x$</li>
+                <li><strong>Maximum :</strong> Résoudre $B'(x) = 0$</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card lesson-card">
+          <h3 style="color: #333; font-size: 1.2rem;">📚 Exercices du manuel</h3>
+          <div class="references-grid">
+            <div class="ref-item">
+              <strong>Capacité :</strong> Étudier des fonctions obtenues par combinaisons linéaires de la fonction inverse et de fonctions polynomiales de degré au maximum 3.
+            </div>
+            <div class="ref-item">
+              <strong>Coût et optimisation :</strong> Exercices 70, 71 p 50
+            </div>
+            <div class="ref-item">
+              <strong>Applications économiques :</strong> Exercices résolus 2 et 3 p 39
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercices Applications -->
+    <section id="applications-exercices" class="tab-content">
+      <h2>🎯 Exercices: Applications des dérivées</h2>
+      <div class="quiz-container">
+        <div class="quiz-controls">
+          <label>Nombre de questions: <input type="number" id="nb-applications" min="3" max="8" value="5"></label>
+          <button onclick="genererQuizApplications()" class="btn-primary">Générer Quiz</button>
+          <button onclick="corrigerQuizApplications()" class="btn-secondary" id="corriger-applications" disabled>Corriger</button>
+          <button onclick="resetQuizApplications()" class="btn-secondary" id="reset-applications" disabled>Recommencer</button>
+        </div>
+        <div id="quiz-applications" class="quiz-questions"></div>
+        <div id="resultat-applications" class="resultat"></div>
       </div>
     </section>
 
@@ -144,7 +398,7 @@
       
       <div class="card" style="margin-bottom: 2rem;">
         <p style="font-style: italic; color: var(--text-muted);">
-        cours portant sur la fonction 1 sur x mais egalement sur la fonctione ² 
+        Cours portant sur la fonction $\frac{1}{x}$ mais également sur la fonction $x^2$
         </p>
       </div>
 
